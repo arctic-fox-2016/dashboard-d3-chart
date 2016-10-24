@@ -6,6 +6,7 @@ module.exports = function(app, passport) {
     const dataController = require('../controllers/data')
 
     app.get('/api/data', dataController.display)
+    app.get('/api/datadate', dataController.display2)
 
     app.get('/API/searchdate/:key', dateController.search)
     app.get('/API/searchdate2/:key', dateController.search2)
@@ -28,12 +29,20 @@ module.exports = function(app, passport) {
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
+    app.get('/pie', function(req, res) {
+        res.render('pie.ejs');
+    });
     app.get('/', function(req, res) {
         res.render('index.ejs');
     });
     app.get('/bar', function(req, res) {
         res.render('bar.ejs');
     });
+    app.get('/line', function(req, res) {
+        res.render('line.ejs');
+    });
+
+
 
     app.get('/home', isLoggedIn, function(req, res) {
         res.render('home.ejs', {

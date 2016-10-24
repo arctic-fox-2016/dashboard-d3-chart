@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Hacktiv8 Chart</title>
+  <style>
+  .axis {
+    font: 10px sans-serif;
+  }
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+  .axis--x path {
+    display: none;
+  }
+  .line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script src="http://d3js.org/d3.v4.0.0-alpha.15.min.js"></script>
+</head>
+<body>
+  <h1>Hacktiv8 Line Chart</h1>
+  <script>
+  var margin = {top: 20, right: 20, bottom: 30, left: 50},
+  width = 960 - margin.left - margin.right,
+  height = 500 - margin.top - margin.bottom;
+  var parseTime = d3.timeParse("%Y-%m-%d");
+  var x = d3.scaleTime()
+  .range([0, width]);
+  var y = d3.scaleLinear()
+  .range([height, 0]);
+  var line = d3.line()
+  .x(function(d) { return x(parseTime(d.letter)); })
+  .y(function(d) { return y(d.frequency); });
+  var svg = d3.select("body").append("svg")
+  .attr("width", width + margin.left + margin.right)
+  .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  $.getJSON( "/api/datadate", function(data) {
+    x.domain(d3.extent(data, function(d) { return parseTime(d.letter); }));
+    y.domain(d3.extent(data, function(d) { return d.frequency; }));
+    svg.append("g")
+    .attr("class", "axis axis--x")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x));
+    svg.append("g")
+    .attr("class", "axis axis--y")
+    .call(d3.axisLeft(y))
+    .append("text")
+    .attr("class", "axis-title")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Frequency");
+    svg.append("path")
+    .datum(data)
+    .attr("class", "line")
+    .attr("d", line);
+  });
+  </script>
+</body>
+</html>
