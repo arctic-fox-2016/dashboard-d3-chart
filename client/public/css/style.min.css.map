@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "style.min.css",
+	"sources": [
+		"style.min.sass",
+		"variable.sass"
+	],
+	"mappings": "AAEA,AAAA,IAAI,CAAC;EACH,UAAU,ECHG,OAAO,GDGQ;;AAE9B,AAAA,IAAI,CAAC;EACH,UAAU,EAAE,WAAY,GAAG;;AAE7B,AAAA,IAAI,EAAE,AAAA,IAAI,CAAC;EACT,WAAW,EAAE,oBAAqB,GAAG;;AAEvC,AAAO,OAAA,AAAA,QAAQ,CAAC;EACd,OAAO,EAAE,SAAU,GAAG;;AAExB,AAAA,SAAS,CAAC;EACR,UAAU,EAAE,IAAK,GAAG",
+	"names": []
+}

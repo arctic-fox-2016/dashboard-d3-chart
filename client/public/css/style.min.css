@@ -1,0 +1,16 @@
+html {
+  background: #fafafa; }
+
+body {
+  background: transparent; }
+
+html, body {
+  font-family: 'Prompt', sans-serif; }
+
+section.content {
+  padding: 100px 0px; }
+
+.margin20 {
+  margin-top: 30px; }
+
+/*# sourceMappingURL=style.min.css.map */

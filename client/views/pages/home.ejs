@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ../head.ejs %>
+</head>
+<body>
+  <%- include ../nav.ejs %>
+  <section class="content">
+    <div class="container">
+
+      <div class="panel panel-default">
+
+          <div class="panel-body">
+            Welcome ,  <strong><%= user.local.email %></strong>
+          </div>
+
+
+      </div>
+
+
+    </div>
+  </section>
+  <%- include ../script.ejs %>
+  <script src="/js/items.js"></script>
+</body>
+</html>

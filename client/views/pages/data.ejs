@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include ../head.ejs %>
+</head>
+
+<body>
+    <%- include ../nav.ejs %>
+
+        <section class="content">
+            <div class="container">
+              <div  id="message" role="alert"></div>
+
+                <button type="button" class="btn btn-primary" id="add-data">+ Add</button>
+
+
+                  <form action="" id="form-data">
+                    <div class="row margin20">
+                        <div class="col-md-6">
+                            <div class="form-group" id="">
+                                <label for="exampleInputEmail1">Letter</label>
+                                <input type="text" class="form-control" id="letter" placeholder="A" name="letter" style="text-transform:uppercase">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group" id="">
+                                <label for="exampleInputEmail1">Frequency</label>
+                                <input type="tex" class="form-control" id="frequency" name="frequency" placeholder="0.0000">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group" id="">
+                              <input type="hidden" class="form-control"  name="hidden-data-id" id="hidden-data-id" placeholder="id">
+                          </div>
+                        </div>
+                    </div>
+                    <button type="submit" id="submit-data" class="btn btn-default">Submit</button>
+                </form>
+                <div class="row margin20">
+                  <div class="col-md-6"><div class="input-group input-group-lg"> <span class="input-group-addon" id="sizing-addon1">Letter</span> <input type="text" id="search-box-letter" class="form-control"placeholder="A"> </div></div>
+                  <div class="col-md-6"><div class="input-group input-group-lg"> <span class="input-group-addon" id="sizing-addon1">Frequency</span> <input type="text"class="form-control" id="search-box-frequency" placeholder="0.0000"> </div></div>
+                </div>
+
+
+
+                <div class="bs-example" data-example-id="striped-table">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Letter</th>
+                                <th>Frequency</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-data">
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+        <%- include ../script.ejs %>
+            <script type="text/javascript" src="js/data.js"></script>
+
+
+</body>
+
+</html>
