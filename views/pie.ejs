@@ -39,10 +39,10 @@
     var color = d3.scale.category20c();
     var data = null;
     $.get({
-      url: "http://localhost:3000/API/datadate",
+      url: "http://localhost:3000/API/data",
       success: function(data){
         var vis = d3.select('#chart').append("svg:svg").data([data]).attr("width", w).attr("height", h).append("svg:g").attr("transform", "translate(" + r + "," + r + ")");
-        var pie = d3.layout.pie().value(function(d){return d.frequency;});
+        var pie = d3.layout.pie().value(function(d){return d.freq;});
         // declare an arc generator function
         var arc = d3.svg.arc().outerRadius(r);
         // select paths, use arc generator to draw
