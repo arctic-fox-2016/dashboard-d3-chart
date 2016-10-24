@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-6">
+                  <a href="/login" class="btn btn-block <% if(type == 1){ %>btn-info<% } %>">
+                    Login
+                  </a>
+                </div>
+                <div class="col-xs-6">
+                  <a href="/register" class="btn btn-block <% if(type == 2){ %>btn-info<% } %>">
+                    Register
+                  </a>
+                </div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-sm-12">
+                  <% if(type == 1){ %>
+                    <form action="/login" method="post">
+                      <div class="form-group">
+                        <input id="txt-email" name="email" type="email" class="form-control input-lg" placeholder="Email" required>
+                      </div>
+                      <div class="form-group">
+                        <input id="txt-password" name="password" type="password" class="form-control input-lg" placeholder="Password" required>
+                      </div>
+                      <% if (message.length > 0) { %>
+                          <div class="alert alert-danger"><%= message %></div>
+                      <% } %>
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-info">
+                          <strong>LOG IN</strong>
+                        </button>
+                      </div>
+                    </form>
+                  <% } else if(type == 2){ %>
+                    <form action="/signup" method="post">
+                      <div class="form-group">
+                        <input id="txt-email" name="email" type="email" class="form-control input-lg" placeholder="Email" required>
+                      </div>
+                      <div class="form-group">
+                        <input id="txt-password" name="password" type="password" class="form-control input-lg" placeholder="Password" required>
+                      </div>
+                      <div class="form-group">
+                        <input id="txt-password-confirm" name="password-confirm" type="password" class="form-control input-lg" placeholder="Confirm Password" required>
+                      </div>
+                      <% if (message.length > 0) { %>
+                          <div class="alert alert-danger"><%= message %></div>
+                      <% } %>
+                      <div class="text-center">
+                        <button type="submit" class="btn btn-success">
+                          <strong>REGISTER NOW</strong>
+                        </button>
+                      </div>
+                    </form>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/lodash/4.16.2/lodash.min.js"></script>
+  <% if(type == 1){ %>
+  <script src="/javascripts/signin.js"></script>
+  <% } else if(type == 2){ %>
+  <script src="/javascripts/signup.js"></script>
+  <% } %>
+</html>
